@@ -31,13 +31,27 @@ boiavam = st.radio(
 
 st.divider()
 
+# 🆕 PERGUNTA 3 - OBSERVAÇÕES
+st.write("Observações do dia (opcional)")
+
+observacoes = st.text_area(
+    "Escreva aqui",
+    max_chars=120,
+    placeholder="Ex: Dor leve abdominal, alimentação normal..."
+)
+
+st.caption(f"{len(observacoes)}/120 caracteres")
+
+st.divider()
+
 # BOTÃO
 if st.button("Salvar respostas"):
 
     dados = {
         "data": str(datetime.now()),
         "banheiro": banheiro,
-        "boiavam": boiavam
+        "boiavam": boiavam,
+        "observacoes": observacoes
     }
 
     st.success("✅ Respostas salvas com sucesso!")
